@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    background: linear-gradient(to right, #87CEFA, #E0FFFF);
+}
+
+.container {
+    display: flex;
+    height: 100%;
+}
+
+/* 左侧内容 */
+.left-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 居中显示内容 */
+    padding: 40px;
+    color: #333;
+}
+
+.left-panel .title {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.left-panel .description {
+    font-size: 18px;
+    margin-top: 10px;
+    line-height: 1.5;
+}
+
+/* 右侧上传卡片 */
+.right-panel {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.upload-card {
+    width: 90%; /* 接近右侧一半宽度 */
+    height: 90%; /* 基本撑满上下高度 */
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.upload-card h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.file-drop {
+    width: 100%;
+    height: 60%;
+    border: 2px dashed #ccc;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.file-drop:hover {
+    border-color: #00BFFF;
+    background-color: #f0f8ff;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    width: 48%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.buttons .prev {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.buttons .prev:hover {
+    background-color: #dcdcdc;
+}
+
+.buttons .next {
+    background-color: #87CEFA;
+    color: #fff;
+}
+
+.buttons .next:hover {
+    background-color: #00BFFF;
+}
+
+/* 底部三个点 */
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 20px;
+}
+
+.dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+
+.dots span.active {
+    background-color: #87CEFA;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>文件上传界面</title>
+<!-- 引入外部 CSS 文件 -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- 左侧 -->
+    <div class="left-panel">
+        <div>
+            <div class="title">上传简历</div>
+            <div class="description">上传简历后，平台将为你自动解析并优化，也可选择跳过上传</div>
+        </div>
+    </div>
+
+    <!-- 右侧 -->
+    <div class="right-panel">
+        <div class="upload-card">
+            <h2>Upload file</h2>
+            <!-- 上传框，云上传图标 -->
+            <div class="file-drop" id="fileDrop">
+                <!-- 云上传图标，图片路径放在 images 文件夹下 -->
+                <img src="images/云上传.svg" alt="云上传" style="width:60px; height:60px;">
+                <span style="margin-top:10px; display:block; color:#555;">点击或拖拽文件到此区域</span>
+            </div>
+            <input type="file" id="fileInput" style="display:none;">
+            <div class="buttons">
+                <button class="prev">上一步</button>
+                <button class="next">完成</button>
+            </div>
+            <div class="dots">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const fileDrop = document.getElementById('fileDrop');
+    const fileInput = document.getElementById('fileInput');
+
+    fileDrop.addEventListener('click', () => fileInput.click());
+
+    fileDrop.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        fileDrop.style.borderColor = "#00BFFF";
+        fileDrop.style.backgroundColor = "#f0f8ff";
+    });
+
+    fileDrop.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        fileDrop.style.borderColor = "#ccc";
+        fileDrop.style.backgroundColor = "#fff";
+    });
+
+    fileDrop.addEventListener('drop', (e) => {
+        e.preventDefault();
+        fileDrop.style.borderColor = "#ccc";
+        fileDrop.style.backgroundColor = "#fff";
+        const files = e.dataTransfer.files;
+        if (files.length) alert(`已选择文件: ${files[0].name}`);
+    });
+
+    fileInput.addEventListener('change', () => {
+        if (fileInput.files.length) alert(`已选择文件: ${fileInput.files[0].name}`);
+    });
+</script>
+
+</body>
+</html>
